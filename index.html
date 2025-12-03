@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Futurista • Luiz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/framer-motion@11.0.0/dist/framer-motion.umd.js"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      color: #e5e7eb;
+    }
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .glow {
+      box-shadow: 0 0 25px rgba(56,189,248,0.35);
+    }
+    .tab-btn.active {
+      background: linear-gradient(135deg, #38bdf8, #8b5cf6);
+      color: white;
+    }
+    .fade {
+      animation: fade 0.4s ease;
+    }
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-between p-4">
+
+  <!-- CONTEÚDO PRINCIPAL -->
+<main 
+  id="content" 
+  class="glass glow border-2 rounded-3xl w-full max-w-5xl p-8 mb-28 fade transition-all duration-300"
+>
+<h1 class="text-4xl font-bold mb-4 text-[#8100FA]">Luiz</h1>
+          <p class="text-lg mb-2">Sou o Luiz, um criador multifuncional que une programação, animação, composição musical e edição profissional em um só lugar.</p>
+          <p class="mb-2">Minha mente funciona como um laboratório criativo, sempre buscando novas ideias, efeitos e formas de impactar pessoas com tecnologia e arte.</p>
+          <p class="mb-2">Desde cedo comecei a mexer com código, e com o tempo isso virou mais do que hobby — virou identidade.</p>
+          <p class="mb-2">Gosto de temas futuristas, terror, suspense, ficção científica e tudo que envolve emoção forte.</p>
+          <p class="mb-2">Minhas inspirações vêm de jogos, filmes, séries, animações e principalmente da minha própria imaginação.</p>
+          <p class="mb-2">Não gosto de coisas genéricas. Tudo que eu crio precisa ter personalidade.</p>
+          <p class="mb-2">Valorizo muito qualidade acima de quantidade.</p>
+          <p class="mb-2">Cada projeto meu carrega um pedaço do que eu sou.</p>
+          <p class="mb-2">Programação pra mim não é só código, é expressão.</p>
+          <p class="mb-2">Animação pra mim não é só movimento, é narrativa.</p>
+          <p class="mb-2">Música pra mim não é só som, é sentimento.</p>
+          <p class="mb-2">Edição pra mim não é só corte, é ritmo.</p>
+          <p class="mb-2">Meu objetivo é viver de criação.</p>
+          <p class="mb-2">Quero levar minhas ideias para o mundo.</p>
+          <p class="mb-2">Transformar conceitos em experiências.</p>
+          <p class="mb-2">Impactar pessoas com o que eu faço.</p>
+          <p class="mb-2">Esse portfólio é apenas o começo.</p>
+          <p>O futuro ainda vai ouvir muito o nome Luiz.</p>
+  </main>
+
+  <!-- BARRA INFERIOR -->
+  <nav class="fixed bottom-4 left-1/2 -translate-x-1/2 glass glow rounded-full px-4 py-3 flex gap-2">
+    <button class="tab-btn active px-4 py-2 rounded-full text-sm" onclick="setTab('sobre')">Luiz</button>
+    <button class="tab-btn px-4 py-2 rounded-full text-sm" onclick="setTab('musica')">Músicas</button>
+    <button class="tab-btn px-4 py-2 rounded-full text-sm" onclick="setTab('dev')">Dev</button>
+    <button class="tab-btn px-4 py-2 rounded-full text-sm" onclick="setTab('animacao')">Animação</button>
+    <button class="tab-btn px-4 py-2 rounded-full text-sm" onclick="setTab('edicao')">Edição</button>
+    <button class="tab-btn px-4 py-2 rounded-full text-sm" onclick="setTab('extras')">Extras</button>
+  </nav>
+
+  <script>
+    const content = document.getElementById('content');
+    const buttons = document.querySelectorAll('.tab-btn');
+
+    function setActive(btn) {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+function setThemeColor(color) {
+  content.style.borderColor = color;
+  content.style.boxShadow = `0 0 30px ${color}`;
+}
+
+
+    function setTab(tab) {
+      const btn = event.target;
+      setActive(btn);
+      content.classList.remove('fade');
+      void content.offsetWidth;
+      content.classList.add('fade');
+
+      if (tab === 'sobre') {
+        setThemeColor('#8100FA');
+        content.innerHTML = `
+          <h1 class="text-4xl font-bold mb-4 text-[#8100FA]">Luiz</h1>
+          <p class="text-lg mb-2">Sou o Luiz, um criador multifuncional que une programação, animação, composição musical e edição profissional em um só lugar.</p>
+          <p class="mb-2">Minha mente funciona como um laboratório criativo, sempre buscando novas ideias, efeitos e formas de impactar pessoas com tecnologia e arte.</p>
+          <p class="mb-2">Desde cedo comecei a mexer com código, e com o tempo isso virou mais do que hobby — virou identidade.</p>
+          <p class="mb-2">Gosto de temas futuristas, terror, suspense, ficção científica e tudo que envolve emoção forte.</p>
+          <p class="mb-2">Minhas inspirações vêm de jogos, filmes, séries, animações e principalmente da minha própria imaginação.</p>
+          <p class="mb-2">Não gosto de coisas genéricas. Tudo que eu crio precisa ter personalidade.</p>
+          <p class="mb-2">Valorizo muito qualidade acima de quantidade.</p>
+          <p class="mb-2">Cada projeto meu carrega um pedaço do que eu sou.</p>
+          <p class="mb-2">Programação pra mim não é só código, é expressão.</p>
+          <p class="mb-2">Animação pra mim não é só movimento, é narrativa.</p>
+          <p class="mb-2">Música pra mim não é só som, é sentimento.</p>
+          <p class="mb-2">Edição pra mim não é só corte, é ritmo.</p>
+          <p class="mb-2">Meu objetivo é viver de criação.</p>
+          <p class="mb-2">Quero levar minhas ideias para o mundo.</p>
+          <p class="mb-2">Transformar conceitos em experiências.</p>
+          <p class="mb-2">Impactar pessoas com o que eu faço.</p>
+          <p class="mb-2">Esse portfólio é apenas o começo.</p>
+          <p>O futuro ainda vai ouvir muito o nome Luiz.</p>
+        `;
+      }
+
+if (tab === 'musica') {
+  setThemeColor('#A855F7');
+  content.innerHTML = `
+    <h1 class="text-4xl font-bold mb-4 text-purple-400">Composição Musical</h1>
+
+    <p class="text-gray-300">A música sempre foi uma forma de expressão muito forte na minha vida.</p>
+    <p class="text-gray-300">Eu não componho apenas sons, eu componho emoções.</p>
+    <p class="text-gray-300">Cada trilha que crio nasce com uma intenção clara.</p>
+    <p class="text-gray-300">Seja gerar tensão, mistério, ação ou tristeza.</p>
+    <p class="text-gray-300">Minhas músicas são pensadas para jogos, filmes, séries e animações.</p>
+    <p class="text-gray-300">Trabalho muito com ambient, eletrônico, dark e cinematic.</p>
+    <p class="text-gray-300">Gosto de criar atmosferas que prendem a atenção.</p>
+    <p class="text-gray-300">Uso a música como ferramenta de narrativa.</p>
+    <p class="text-gray-300">Cada batida tem um propósito.</p>
+    <p class="text-gray-300">Cada melodia carrega uma história.</p>
+    <p class="text-gray-300">Não gosto de músicas genéricas.</p>
+    <p class="text-gray-300">Busco identidade própria em cada composição.</p>
+    <p class="text-gray-300">Minhas referências vêm de jogos, animes, filmes e séries.</p>
+    <p class="text-gray-300">O terror e o suspense são minhas maiores inspirações.</p>
+    <p class="text-gray-300">Também sei trabalhar com músicas calmas e emocionais.</p>
+    <p class="text-gray-300">Trilhas para personagens são um dos meus pontos fortes.</p>
+    <p class="text-gray-300">Trilhas para cenas de ação também.</p>
+    <p class="text-gray-300">Tenho cuidado extremo com mixagem e ritmo.</p>
+    <p class="text-gray-300">Cada projeto musical é tratado como algo único.</p>
+    <p class="text-gray-300">Música pra mim não é só som, é identidade.</p>
+    
+    <div>
+        <h1>Redes Musicais:</h1>
+        <div class="text-[#FF5500] border-[#FF5500] shadow-[0_0_25px_#FF5500] glass p-4 rounded-xl mt-4">
+            <h3 class="text font-bold">SoundCloud</h3>
+            <a href="https://on.soundcloud.com/EAFUgNhrzC0g1VwdHP" class="text-[#FF8B52] hover:underline">1m.de4d</a>
+        </div>
+        <div class="text-[#1DB954] border-[#1DB954] shadow-[0_0_25px_#1DB954] glass p-4 rounded-xl mt-4">
+            <h3 class="text font-bold">Spotify</h3>
+            <a href="https://open.spotify.com/artist/5Z0pG7b1vX4JtJ4t3Yh5kE" class="text-[#6DFF8B] hover:underline">Luiz</a>
+        </div>
+    `;
+}
+
+
+if (tab === 'dev') {
+  setThemeColor('#4ade80');
+  content.innerHTML = `
+    <h1 class="text-4xl font-bold mb-4 text-green-400">Desenvolvimento & Programação</h1>
+
+    <p class="text-gray-300">Programação é a base de tudo que eu crio.</p>
+    <p class="text-gray-300">Nada de arrastar bloquinho aqui.</p>
+    <p class="text-gray-300">Tudo que eu faço é no código.</p>
+    <p class="text-gray-300">Linha por linha, comando por comando.</p>
+    <p class="text-gray-300">Gosto de entender exatamente o que cada parte faz.</p>
+    <p class="text-gray-300">Tenho foco em sites modernos, rápidos e futuristas.</p>
+    <p class="text-gray-300">Trabalho muito com interfaces animadas.</p>
+    <p class="text-gray-300">Gosto de criar experiências, não só páginas.</p>
+    <p class="text-gray-300">HTML é minha base principal.</p>
+    <p class="text-gray-300">CSS é onde eu deixo tudo bonito.</p>
+    <p class="text-gray-300">JavaScript é onde tudo ganha vida.</p>
+    <p class="text-gray-300">Arduino é onde levo o código para o mundo real.</p>
+    <p class="text-gray-300">Já fiz projetos com sensores, displays e automação.</p>
+    <p class="text-gray-300">Sempre busco aprender mais.</p>
+    <p class="text-gray-300">Nunca fico estagnado.</p>
+    <p class="text-gray-300">Meu sonho é viver exclusivamente da programação.</p>
+    <p class="text-gray-300">Criar sistemas, jogos, sites e aplicativos.</p>
+    <p class="text-gray-300">Unir design, código e criatividade.</p>
+    <p class="text-gray-300">Programar pra mim é arte.</p>
+    <p class="text-gray-300">E isso é só o começo.</p>
+
+    <div class=" grid md:grid-cols-2 gap-4 mt-6">
+      <div class="bg-[#001E6B] text-[#0055FF] border-[#0055FF] shadow-[0_0_25px_#0055FF] glass p-4 rounded-xl">
+        <h3 class="font-bold">DarkStudio</h3>
+        <a href="https://dark-studio-code.netlify.app/" class="text-[#3B7CFF] hover:underline">https://dark-studio-code.netlify.app/</a>
+      </div>
+      <div class="bg-[#680000] text-[#FF0000] border-[#FF0000] shadow-[0_0_25px_#FF0000] glass p-4 rounded-xl">
+        <h3 class="font-bold">Meu Site 2</h3>
+        <a href="#" class="text-[#FF6666] hover:underline">https://meusite2.com</a>
+      </div>
+    </div>
+
+    <h3 class="mt-6 font-bold text-lg">Linguagens que domino:</h3>
+    <p class="text-gray-300">HTML • CSS • JavaScript • Arduino • CMD/BAT • Python • C</p>
+  `;
+}
+
+
+if (tab === 'animacao') {
+  setThemeColor('#F472B6');
+  content.innerHTML = `
+    <h1 class="text-4xl font-bold mb-4 text-pink-400">Animação 2D & 3D</h1>
+
+    <p class="text-gray-300">Animação é vida em movimento.</p>
+    <p class="text-gray-300">Cada frame conta uma parte da história.</p>
+    <p class="text-gray-300">Trabalho com animações estilizadas.</p>
+    <p class="text-gray-300">Também faço animações mais realistas.</p>
+    <p class="text-gray-300">Tenho foco em expressões e impacto visual.</p>
+    <p class="text-gray-300">Movimentos fluídos são prioridade.</p>
+    <p class="text-gray-300">Animações travadas matam a imersão.</p>
+    <p class="text-gray-300">Sempre penso no ritmo da cena.</p>
+    <p class="text-gray-300">Gosto de animações com clima de suspense.</p>
+    <p class="text-gray-300">Também sei fazer cenas de ação.</p>
+    <p class="text-gray-300">E cenas emocionais também.</p>
+    <p class="text-gray-300">Tudo depende da narrativa.</p>
+    <p class="text-gray-300">Cada projeto é pensado como um mini filme.</p>
+    <p class="text-gray-300">Luz, sombra e câmera fazem toda a diferença.</p>
+    <p class="text-gray-300">Gosto de trabalhar com estética futurista.</p>
+    <p class="text-gray-300">E também com terror.</p>
+    <p class="text-gray-300">Minhas maiores referências vêm de séries e jogos.</p>
+    <p class="text-gray-300">Animação não é só movimento.</p>
+    <p class="text-gray-300">É emoção em forma de imagem.</p>
+    <p class="text-gray-300">E é isso que eu busco entregar.</p>
+  `;
+}
+
+if (tab === 'edicao') {
+  setThemeColor('#F87171');
+  content.innerHTML = `
+    <h1 class="text-4xl font-bold mb-4 text-red-400">Edição Profissional</h1>
+
+    <p class="text-gray-300">Edição é onde tudo se conecta.</p>
+    <p class="text-gray-300">Imagem, som e ritmo.</p>
+    <p class="text-gray-300">Trabalho com edição em alta qualidade.</p>
+    <p class="text-gray-300">Sempre priorizando fluidez.</p>
+    <p class="text-gray-300">Cortes secos quando precisam ser secos.</p>
+    <p class="text-gray-300">Cenas longas quando precisam respirar.</p>
+    <p class="text-gray-300">Efeitos são usados com propósito.</p>
+    <p class="text-gray-300">Nunca de forma exagerada sem sentido.</p>
+    <p class="text-gray-300">Gosto de edições cinematográficas.</p>
+    <p class="text-gray-300">Com impacto visual forte.</p>
+    <p class="text-gray-300">Som bem tratado é essencial.</p>
+    <p class="text-gray-300">Imagem sem áudio bom não funciona.</p>
+    <p class="text-gray-300">Trabalho bem com vídeos de terror.</p>
+    <p class="text-gray-300">Ação também.</p>
+    <p class="text-gray-300">Suspense é um dos meus pontos fortes.</p>
+    <p class="text-gray-300">Trato cada frame com cuidado.</p>
+    <p class="text-gray-300">Cada detalhe importa.</p>
+    <p class="text-gray-300">4K não é luxo, é padrão.</p>
+    <p class="text-gray-300">Entrega profissional sempre.</p>
+    <p class="text-gray-300">Esse é meu compromisso com a edição.</p>
+  `;
+}
+
+
+if (tab === 'extras') {
+  setThemeColor('#FBBF24');
+  content.innerHTML = `
+    <h1 class="text-4xl font-bold mb-4 text-yellow-400">Extras</h1>
+
+    <p class="text-gray-300">Além de programar, animar, editar e compor.</p>
+    <p class="text-gray-300">Também produzo conteúdo para a internet.</p>
+    <p class="text-gray-300">Tenho canal no YouTube.</p>
+    <p class="text-gray-300">Onde posto projetos autorais.</p>
+    <p class="text-gray-300">Também faço dublagens.</p>
+    <p class="text-gray-300">De jogos, séries, filmes e animações.</p>
+    <p class="text-gray-300">Gosto de trabalhar com personagens.</p>
+    <p class="text-gray-300">Criar vozes diferentes.</p>
+    <p class="text-gray-300">Dar personalidade por meio da voz.</p>
+    <p class="text-gray-300">Sempre busco melhorar minha interpretação.</p>
+    <p class="text-gray-300">Direção de dublagens constantes.</p>
+    <p class="text-gray-300">Tudo isso soma ao meu lado criativo.</p>
+    <p class="text-gray-300">Nada aqui é feito por acaso.</p>
+    <p class="text-gray-300">Tudo tem propósito.</p>
+    <p class="text-gray-300">Tudo tem identidade.</p>
+    <p class="text-gray-300">Tudo tem alma.</p>
+    <p class="text-gray-300">Esse portfólio é só uma parte do que eu faço.</p>
+    <p class="text-gray-300">Ainda tem muita coisa vindo.</p>
+    <p class="text-gray-300">Muitos projetos.</p>
+    <p class="text-gray-300">E muita história pra contar.</p>
+
+    <div style="padding: 1rem; border-radius: 1rem;" class="bg-[#222222] grid md:grid-cols-2 gap-4 mt-6">
+      <div class="bg-[#000000] text-[#2597F4] border-[#FFFFFF] shadow-[0_0_25px_#FFFFFF] glass p-4 rounded-xl">
+        <h3 class="font-bold">Tik Tok</h3>
+        <a href="https://www.tiktok.com/@cdp_yt" class="text-[#FF5E7D] hover:underline">@cdp_yt</a>
+      </div>
+      <div class="bg-[#680000] text-[#FF0000] border-[#FF0000] shadow-[0_0_25px_#FF0000] glass p-4 rounded-xl">
+        <h3 class="font-bold">Youtube</h3>
+        <a href="https://www.youtube.com/@caixa_brasil" class="text-[#FF6666] hover:underline">@caixa_brasil</a>
+      </div>
+    </div>
+
+  `;
+}
+
+    }
+  </script>
+</body>
+</html>
